@@ -6,52 +6,62 @@ function parseYAML(yamlText) {
     const result = {};
     let currentKey = null;
     let currentArray = null;
-    let indent = 0;
+    let currentObject = null;
+    let baseIndent = 0;
 
-    for (let line of lines) {
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
         const trimmedLine = line.trim();
+        
         if (!trimmedLine || trimmedLine.startsWith('#')) continue;
 
         const lineIndent = line.length - line.trimStart().length;
 
         if (trimmedLine.includes(':')) {
-            const [key, ...valueParts] = trimmedLine.split(':');
-            const value = valueParts.join(':').trim();
+            const colonIndex = trimmedLine.indexOf(':');
+            const key = trimmedLine.substring(0, colonIndex).trim();
+            const value = trimmedLine.substring(colonIndex + 1).trim();
             
             if (lineIndent === 0) {
-                currentKey = key.trim();
+                // Top-level property
+                currentKey = key;
                 if (value) {
                     result[currentKey] = value;
+                    currentArray = null;
+                    currentObject = null;
                 } else {
-                    // This might be an array or object
+                    // This will be an array
                     currentArray = [];
                     result[currentKey] = currentArray;
+                    currentObject = null;
+                    baseIndent = 0;
                 }
-            } else if (currentArray && lineIndent > indent) {
-                // This is part of an array item
-                if (key.trim() === 'name' || key.trim() === 'desc') {
-                    if (currentArray.length === 0 || typeof currentArray[currentArray.length - 1] !== 'object') {
-                        currentArray.push({});
+            } else if (currentArray !== null) {
+                // We're inside an array
+                if (lineIndent > baseIndent) {
+                    // This is a property of an array item
+                    if (currentObject === null) {
+                        // Create a new object for this array item
+                        currentObject = {};
+                        currentArray.push(currentObject);
                     }
-                    currentArray[currentArray.length - 1][key.trim()] = value;
+                    currentObject[key] = value;
                 }
             }
         } else if (trimmedLine.startsWith('-')) {
-            // Array item
-            if (currentArray) {
+            // Array item marker
+            if (currentArray !== null) {
+                baseIndent = lineIndent;
                 const itemValue = trimmedLine.substring(1).trim();
                 if (itemValue) {
+                    // Simple array item
                     currentArray.push(itemValue);
+                    currentObject = null;
                 } else {
-                    currentArray.push({});
+                    // This will be an object, prepare for next properties
+                    currentObject = null;
                 }
             }
-        }
-        
-        if (lineIndent === 0) {
-            indent = 0;
-        } else {
-            indent = lineIndent;
         }
     }
 
