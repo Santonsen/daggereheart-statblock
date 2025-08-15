@@ -204,15 +204,7 @@ function renderStatblock(data) {
             const name = feat.name || '-';
             const desc = feat.desc || '-';
             
-            const nameSpan = document.createElement('strong');
-            nameSpan.textContent = name + ': ';
-            
-            const descSpan = document.createElement('span');
-            descSpan.className = 'description';
-            descSpan.innerHTML = processMarkdown(desc);
-            
-            featureText.appendChild(nameSpan);
-            featureText.appendChild(descSpan);
+            featureText.innerHTML = `<strong>${name}:</strong> ${processMarkdown(desc)}`;
             featureDiv.appendChild(featureText);
 
             container.appendChild(featureDiv);
