@@ -1,0 +1,9 @@
+{
+  "id": "daggerheart-statblocks",
+  "name": "Daggerheart Statblocks", 
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Clean statblock rendering for Daggerheart adversaries",
+  "author": "YourName",
+  "isDesktopOnly": false
+}

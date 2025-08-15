@@ -1,0 +1,189 @@
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Main statblock card container */
+.dh-adversary-card {
+    background-color: #f5f3e8;
+    border: 3px solid #8b7355;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Inter', sans-serif;
+    max-width: 600px;
+    color: #2c2c2c;
+    line-height: 1.4;
+}
+
+/* Creature name - large uppercase title */
+.dh-adversary-card .dh-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin: 0 0 0.3rem 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* Tier and type subtitle */
+.dh-adversary-card .dh-subtitle {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #4a4a4a;
+    margin: 0.3rem 0 0.8rem 0;
+    font-weight: 600;
+}
+
+/* Description text */
+.dh-adversary-card .dh-description {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.3rem 0 1rem 0;
+    line-height: 1.4;
+}
+
+/* Motives & tactics */
+.dh-adversary-card .dh-motives {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.dh-adversary-card .dh-motives strong {
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+/* Horizontal separators */
+.dh-adversary-card .dh-separator {
+    border: 0;
+    height: 2px;
+    background-color: #8b7355;
+    margin: 1rem 0;
+}
+
+/* Stats rows */
+.dh-adversary-card .dh-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin: 0.5rem 0;
+    align-items: center;
+}
+
+.dh-adversary-card .dh-stat {
+    white-space: nowrap;
+}
+
+.dh-adversary-card .dh-stat strong {
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+.dh-adversary-card .dh-divider {
+    color: #8b7355;
+    font-weight: 400;
+    margin: 0 0.2rem;
+}
+
+/* Features section title */
+.dh-adversary-card .dh-features-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin: 1.5rem 0 1rem 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #8b7355;
+    padding-bottom: 0.3rem;
+}
+
+/* Individual features */
+.dh-adversary-card .dh-feature {
+    margin-bottom: 1rem;
+}
+
+/* Feature names */
+.dh-adversary-card .dh-feature-name {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #2c2c2c;
+    margin-bottom: 0.3rem;
+}
+
+/* Feature descriptions */
+.dh-adversary-card .dh-feature-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Bold and italic styling in feature descriptions */
+.dh-adversary-card .dh-feature-desc strong,
+.dh-adversary-card strong {
+    font-weight: 600;
+    color: #2c2c2c !important;
+}
+
+.dh-adversary-card .dh-feature-desc em,
+.dh-adversary-card em {
+    font-style: italic;
+    color: #2c2c2c;
+}
+
+/* Error styling */
+.dh-error {
+    background-color: #ffe6e6;
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    padding: 1rem;
+    color: #d63031;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .dh-adversary-card {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .dh-adversary-card .dh-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .dh-adversary-card .dh-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .dh-adversary-card .dh-features-title {
+        font-size: 1.4rem;
+    }
+    
+    .dh-adversary-card .dh-stats-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .dh-adversary-card .dh-divider {
+        display: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .dh-adversary-card {
+        background-color: white !important;
+        box-shadow: none !important;
+        border: 2px solid #8b7355 !important;
+        break-inside: avoid;
+    }
+}
