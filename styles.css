@@ -56,12 +56,14 @@
     font-weight: 600;
 }
 
-/* Horizontal separators */
+/* Horizontal separators - FIXED TO BE IDENTICAL */
 .dh-adversary-card .dh-separator {
     border: 0;
     height: 2px;
     background-color: #C5B28E;
-    margin: 0 -5px;
+    margin: 0.1rem -5px;
+    display: block;
+    min-height: 2px;
 }
 
 /* Stats section with white background */
@@ -106,11 +108,6 @@
     margin: 0.8rem 0 0.6rem 0;
     letter-spacing: 1px;
     text-transform: uppercase;
-}
-
-/* Add some bottom margin to prevent the last separator from being cut off */
-.dh-adversary-card .dh-separator:last-of-type {
-    margin-bottom: 0.2rem;
 }
 
 /* Individual features */
