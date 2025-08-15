@@ -49,6 +49,8 @@
     font-size: 1rem;
     color: #555;
     margin-bottom: 0.5rem;
+    border-bottom: 2px solid #C5B28E;
+    padding-bottom: 0.5rem;
 }
 
 .dh-adversary-card .dh-motives strong {
@@ -56,22 +58,9 @@
     font-weight: 600;
 }
 
-/* Horizontal separators - FIXED TO BE IDENTICAL */
+/* Remove the old separator styles */
 .dh-adversary-card .dh-separator {
-    border: 0;
-    height: 2px;
-    background-color: #C5B28E;
-    margin: 0 -5px;
-    display: block;
-    min-height: 2px;
-    box-sizing: border-box;
-}
-
-/* Force the bottom separator to render properly */
-.dh-adversary-card .dh-separator:last-child {
-    height: 2px !important;
-    background-color: #C5B28E !important;
-    border: none !important;
+    display: none;
 }
 
 /* Stats section with white background */
@@ -79,6 +68,7 @@
     background-color: #FFFFFF;
     margin: 0 -5px;
     padding: 0.4rem 15px;
+    border-bottom: 2px solid #C5B28E;
     border-radius: 4px;
 }
 
