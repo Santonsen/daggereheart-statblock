@@ -1,5 +1,5 @@
-/* Import a font closer to the target */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+/* Import a condensed font closer to the target */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 /* Main statblock card container */
 .dh-adversary-card {
@@ -19,9 +19,10 @@
 .dh-adversary-card .dh-title {
     font-size: 2.5rem;
     font-weight: 700;
+    font-family: 'Roboto Condensed', sans-serif;
     color: #2c2c2c;
     margin: 0 0 0.3rem 0;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
     text-transform: uppercase;
     line-height: 1.1;
 }
