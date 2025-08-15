@@ -120,14 +120,20 @@
     font-size: 1rem;
     color: #555;
     line-height: 1.4;
-    text-indent: -1.5rem;
-    padding-left: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .dh-adversary-card .dh-feature-text strong {
     font-weight: 600;
     font-style: italic;
     color: #2c2c2c !important;
+    flex-shrink: 0;
+}
+
+.dh-adversary-card .dh-feature-text .description {
+    flex: 1;
+    margin-left: 0;
 }
 
 /* Bold and italic styling in feature descriptions */
