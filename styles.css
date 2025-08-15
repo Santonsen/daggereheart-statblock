@@ -61,9 +61,17 @@
     border: 0;
     height: 2px;
     background-color: #C5B28E;
-    margin: 0.1rem -5px;
+    margin: 0 -5px;
     display: block;
     min-height: 2px;
+    box-sizing: border-box;
+}
+
+/* Force the bottom separator to render properly */
+.dh-adversary-card .dh-separator:last-child {
+    height: 2px !important;
+    background-color: #C5B28E !important;
+    border: none !important;
 }
 
 /* Stats section with white background */
