@@ -125,7 +125,7 @@ function renderStatblock(data) {
     container.appendChild(motives);
 
     // Horizontal separator
-    const separator1 = document.createElement('hr');
+    const separator1 = document.createElement('div');
     separator1.className = 'dh-separator';
     container.appendChild(separator1);
 
@@ -182,7 +182,7 @@ function renderStatblock(data) {
     container.appendChild(statsSection);
 
     // Horizontal separator
-    const separator2 = document.createElement('hr');
+    const separator2 = document.createElement('div');
     separator2.className = 'dh-separator';
     container.appendChild(separator2);
 
