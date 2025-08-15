@@ -108,6 +108,11 @@
     text-transform: uppercase;
 }
 
+/* Add some bottom margin to prevent the last separator from being cut off */
+.dh-adversary-card .dh-separator:last-of-type {
+    margin-bottom: 0.2rem;
+}
+
 /* Individual features */
 .dh-adversary-card .dh-feature {
     margin-bottom: 0.6rem;
