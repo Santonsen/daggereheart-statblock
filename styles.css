@@ -1,5 +1,5 @@
 /* Import a font closer to the target */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 /* Main statblock card container */
 .dh-adversary-card {
@@ -9,7 +9,7 @@
     padding: 20px 20px 22px 20px;
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     max-width: 600px;
     color: #2c2c2c;
     line-height: 1.1;
@@ -21,7 +21,7 @@
     font-weight: 700;
     color: #2c2c2c;
     margin: 0 0 0.3rem 0;
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     line-height: 1.1;
 }
@@ -152,7 +152,7 @@
     border-radius: 8px;
     padding: 1rem;
     color: #d63031;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
 }
 
