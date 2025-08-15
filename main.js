@@ -164,9 +164,9 @@ function renderStatblock(data) {
     
     let attackString = '';
     if (attack !== '-' && range !== '-' && damage !== '-') {
-        attackString = `${attack}: ${range} | ${damage}`;
+        attackString = `<strong>${attack}:</strong> ${range} | ${damage}`;
     } else if (attack !== '-') {
-        attackString = attack;
+        attackString = `<strong>${attack}:</strong>`;
     } else {
         attackString = '-';
     }
