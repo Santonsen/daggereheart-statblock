@@ -106,6 +106,10 @@ function renderStatblock(data) {
     separator1.className = 'dh-separator';
     container.appendChild(separator1);
 
+    // Stats Section with white background
+    const statsSection = document.createElement('div');
+    statsSection.className = 'dh-stats-section';
+
     // Stats Row 1
     const statsRow1 = document.createElement('div');
     statsRow1.className = 'dh-stats-row';
@@ -124,7 +128,7 @@ function renderStatblock(data) {
         <span class="dh-divider">|</span>
         <span class="dh-stat"><strong>Stress:</strong> ${stress}</span>
     `;
-    container.appendChild(statsRow1);
+    statsSection.appendChild(statsRow1);
 
     // Stats Row 2
     const statsRow2 = document.createElement('div');
@@ -149,7 +153,10 @@ function renderStatblock(data) {
         <span class="dh-divider">|</span>
         <span class="dh-stat">${attackString}</span>
     `;
-    container.appendChild(statsRow2);
+    statsSection.appendChild(statsRow2);
+
+    // Add the stats section to the container
+    container.appendChild(statsSection);
 
     // Horizontal separator
     const separator2 = document.createElement('hr');

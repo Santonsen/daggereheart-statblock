@@ -56,24 +56,20 @@
     font-weight: 600;
 }
 
-/* Horizontal separators with white background sections */
+/* Horizontal separators */
 .dh-adversary-card .dh-separator {
     border: 0;
     height: 2px;
     background-color: #C5B28E;
     margin: 0.8rem 0;
-    position: relative;
 }
 
-.dh-adversary-card .dh-separator::after {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 15px;
-    right: 15px;
-    height: 18px;
+/* Stats section with white background */
+.dh-adversary-card .dh-stats-section {
     background-color: #FFFFFF;
-    border-radius: 2px;
+    margin: 0.8rem -5px;
+    padding: 0.6rem 15px;
+    border-radius: 4px;
 }
 
 /* Stats rows */
