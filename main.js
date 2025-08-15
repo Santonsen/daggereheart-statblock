@@ -198,15 +198,14 @@ function renderStatblock(data) {
             const featureDiv = document.createElement('div');
             featureDiv.className = 'dh-feature';
 
-            const featureName = document.createElement('div');
-            featureName.className = 'dh-feature-name';
-            featureName.textContent = feat.name || '-';
-            featureDiv.appendChild(featureName);
-
-            const featureDesc = document.createElement('div');
-            featureDesc.className = 'dh-feature-desc';
-            featureDesc.innerHTML = processMarkdown(feat.desc || '-');
-            featureDiv.appendChild(featureDesc);
+            const featureText = document.createElement('div');
+            featureText.className = 'dh-feature-text';
+            
+            const name = feat.name || '-';
+            const desc = feat.desc || '-';
+            
+            featureText.innerHTML = `<strong>${name}:</strong> ${processMarkdown(desc)}`;
+            featureDiv.appendChild(featureText);
 
             container.appendChild(featureDiv);
         });

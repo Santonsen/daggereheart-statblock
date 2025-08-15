@@ -115,20 +115,17 @@
     margin-bottom: 1rem;
 }
 
-/* Feature names */
-.dh-adversary-card .dh-feature-name {
-    font-size: 1rem;
-    font-weight: 600;
-    font-style: italic;
-    color: #2c2c2c;
-    margin-bottom: 0.3rem;
-}
-
-/* Feature descriptions */
-.dh-adversary-card .dh-feature-desc {
+/* Feature text (name: description on same line) */
+.dh-adversary-card .dh-feature-text {
     font-size: 1rem;
     color: #555;
     line-height: 1.4;
+}
+
+.dh-adversary-card .dh-feature-text strong {
+    font-weight: 600;
+    font-style: italic;
+    color: #2c2c2c !important;
 }
 
 /* Bold and italic styling in feature descriptions */
