@@ -4,64 +4,77 @@ const { Plugin } = require('obsidian');
 function parseYAML(yamlText) {
     const lines = yamlText.trim().split('\n');
     const result = {};
-    let currentKey = null;
-    let currentArray = null;
-    let currentObject = null;
-    let baseIndent = 0;
+    let i = 0;
 
-    for (let i = 0; i < lines.length; i++) {
+    while (i < lines.length) {
         const line = lines[i];
         const trimmedLine = line.trim();
         
-        if (!trimmedLine || trimmedLine.startsWith('#')) continue;
+        if (!trimmedLine || trimmedLine.startsWith('#')) {
+            i++;
+            continue;
+        }
 
         const lineIndent = line.length - line.trimStart().length;
 
-        if (trimmedLine.includes(':')) {
+        if (lineIndent === 0 && trimmedLine.includes(':')) {
+            // Top-level property
             const colonIndex = trimmedLine.indexOf(':');
             const key = trimmedLine.substring(0, colonIndex).trim();
             const value = trimmedLine.substring(colonIndex + 1).trim();
             
-            if (lineIndent === 0) {
-                // Top-level property
-                currentKey = key;
-                if (value) {
-                    result[currentKey] = value;
-                    currentArray = null;
-                    currentObject = null;
-                } else {
-                    // This will be an array
-                    currentArray = [];
-                    result[currentKey] = currentArray;
-                    currentObject = null;
-                    baseIndent = 0;
-                }
-            } else if (currentArray !== null) {
-                // We're inside an array
-                if (lineIndent > baseIndent) {
-                    // This is a property of an array item
-                    if (currentObject === null) {
-                        // Create a new object for this array item
-                        currentObject = {};
-                        currentArray.push(currentObject);
+            if (value) {
+                // Simple key-value pair
+                result[key] = value;
+                i++;
+            } else if (key === 'feats') {
+                // Special handling for feats array
+                const feats = [];
+                i++; // Move to next line
+                
+                while (i < lines.length) {
+                    const nextLine = lines[i];
+                    const nextTrimmed = nextLine.trim();
+                    const nextIndent = nextLine.length - nextLine.trimStart().length;
+                    
+                    if (nextIndent === 0) {
+                        // We've reached the end of the feats section
+                        break;
                     }
-                    currentObject[key] = value;
+                    
+                    if (nextTrimmed.startsWith('- name:')) {
+                        // Start of a new feat
+                        const feat = {};
+                        
+                        // Parse the name
+                        const nameValue = nextTrimmed.substring(7).trim(); // Remove "- name:"
+                        feat.name = nameValue;
+                        i++;
+                        
+                        // Look for the desc on the next line
+                        if (i < lines.length) {
+                            const descLine = lines[i];
+                            const descTrimmed = descLine.trim();
+                            if (descTrimmed.startsWith('desc:')) {
+                                feat.desc = descTrimmed.substring(5).trim(); // Remove "desc:"
+                                i++;
+                            }
+                        }
+                        
+                        feats.push(feat);
+                    } else {
+                        i++;
+                    }
                 }
+                
+                result[key] = feats;
+            } else {
+                // Other arrays or objects - simple handling
+                result[key] = [];
+                i++;
             }
-        } else if (trimmedLine.startsWith('-')) {
-            // Array item marker
-            if (currentArray !== null) {
-                baseIndent = lineIndent;
-                const itemValue = trimmedLine.substring(1).trim();
-                if (itemValue) {
-                    // Simple array item
-                    currentArray.push(itemValue);
-                    currentObject = null;
-                } else {
-                    // This will be an object, prepare for next properties
-                    currentObject = null;
-                }
-            }
+        } else {
+            i++;
         }
     }
 
