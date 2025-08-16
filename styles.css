@@ -1,5 +1,5 @@
-/* Import a condensed font closer to the target */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+/* Import fonts closer to the target */
+@import url('https://fonts.googleapis.com/css2?family=Questa+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* Main statblock card container */
 .dh-adversary-card {
@@ -9,7 +9,7 @@
     padding: 20px 20px 22px 20px;
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Questa Sans', sans-serif;
     max-width: 600px;
     color: #2c2c2c;
     line-height: 1.1;
@@ -153,7 +153,7 @@
     border-radius: 8px;
     padding: 1rem;
     color: #d63031;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Questa Sans', sans-serif;
     font-size: 1rem;
 }
 
